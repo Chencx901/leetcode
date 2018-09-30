@@ -12,3 +12,10 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
+        init_val = nums[0]
+        max_sum = nums[0]
+        for i in range(1,len(nums)):
+            curr = max(init_val + nums[i], nums[i])
+            init_val = curr
+            if max_sum < curr: max_sum = curr
+        return max_sum
